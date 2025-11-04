@@ -16,13 +16,17 @@ export default function Home({ serverTime }: Props) {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'system-ui' }}>
-      <h1>Hydration Glitch Reproduction</h1>
+      <h1>Pages Router - Hydration Glitch Test</h1>
+      
+      <div style={{ marginTop: '2rem', padding: '1rem', background: '#fff3cd', border: '2px solid #ff9800' }}>
+        <h2>Pages Router Version</h2>
+        <p>This page uses the Pages Router with SSR.</p>
+      </div>
       
       <div style={{ marginTop: '2rem', padding: '1rem', background: '#f0f0f0' }}>
         <h2>Form Field Test</h2>
         <p>Try typing in the field below immediately after page load:</p>
         
-        {/* This input will be replaced during hydration due to the mismatch */}
         <div>
           <label htmlFor="test-input">
             Test Input:
@@ -42,6 +46,30 @@ export default function Home({ serverTime }: Props) {
             }}
           />
         </div>
+        
+        <p style={{ marginTop: '1rem' }}>
+          Current input value: <strong>{inputValue}</strong>
+        </p>
+        
+        <p style={{ marginTop: '1rem' }}>
+          Hydration status: <strong style={{ color: hydrated ? 'green' : 'red' }}>
+            {hydrated ? 'Complete' : 'In Progress...'}
+          </strong>
+        </p>
+      </div>
+
+      <div style={{ marginTop: '2rem', padding: '1rem', background: '#fff3cd' }}>
+        <h3>Debug Info</h3>
+        <p>Server rendered at: {serverTime}</p>
+      </div>
+
+      <div style={{ marginTop: '2rem', padding: '1rem', background: '#f0f0f0' }}>
+        <h3>Compare with App Router</h3>
+        <p>
+          <a href="/app-router-test" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+            Go to App Router version
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ The hydration bug only occurs in production builds, and only when Turbopack is e
 
 3. **Test the glitch:**
    - In your browser's network dev tools, check "Disable cache" and set throttling to "Slow 4G"
-   - Navigate to http://localhost:3000
+   - Navigate to http://localhost:3000 (Pages Router version) or http://localhost:3000/app-router-test (App Router version)
    - **Immediately** start typing in the autofocused input field as soon as the page loads (before JavaScript executes)
    - Notice that your input gets cleared when hydration completes (should take a few seconds)
 
